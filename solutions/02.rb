@@ -102,34 +102,3 @@ class TodoList
     @todo_list.all? { |task| task.status == :done }
   end
 end
-
-# Examples--------------------------------------------------------------
-
-text = "TODO    | Eat spaghetti.               | High   | food, happiness
-TODO    | Get 8 hours of sleep.        | Low    | health
-CURRENT | Party animal.                | Normal | socialization
-CURRENT | Grok Ruby.                   | High   | development, ruby
-DONE    | Have some tea.               | Normal |
-TODO    | Destroy Facebook and Google. | High   | save humanity, conspiracy
-TODO    | Hunt saber-toothed cats.     | Low    | wtf
-DONE    | Do the 5th Ruby challenge.   | High   | ruby course, FMI, development, ruby
-TODO    | Find missing socks.          | Low    |
-CURRENT | Grow epic mustache.          | High   | sex appeal"
-
-s = TodoList.parse(text)
-
-s.each { |x| puts "#{x.status}, #{x.description}, #{x.priority}, #{x.tags}" }
-
-puts "5555555555555555555555555555555555555555555555555555555555555555555555"
-
-s.sort.each { |x| puts "#{x.status}, #{x.description}, #{x.priority}, #{x.tags}" }
-puts "5555555555555555555555555555555555555555555555555555555555555555555555"
-
-s.filter(Criteria.status(:todo) | Criteria.priority(:high)).each { |x| puts "#{x.status}, #{x.description}, #{x.priority}, #{x.tags}" }
-puts "=---------------------------------------------------------------"
-s.filter(Criteria.tags(%w[development FMI])).each { |x| puts "#{x.status}, #{x.description}, #{x.priority}, #{x.tags}" }
-puts "======================================="
-p s.tasks_todo
-p s.tasks_in_progress
-p s.tasks_completed
-p s.completed?
