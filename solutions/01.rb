@@ -1,7 +1,6 @@
 class Integer
   def prime?
-    return false if pred < 1
-    2.upto(pred).all? { |integer| remainder(integer).nonzero? }
+    (self > 1) and 2.upto(pred).all? { |divisor| remainder(divisor).nonzero? }
   end
 
   def prime_factors
