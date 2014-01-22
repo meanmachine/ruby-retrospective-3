@@ -25,7 +25,7 @@ end
 
 class Array
   def frequencies
-    Hash[map { |element| [element, count(element)] }]
+    Hash[each.map { |element| [element, count(element)] }]
   end
 
   def average
@@ -40,8 +40,7 @@ class Array
 
   def combine_with(other)
     shorter_size    = size < other.size ? size : other.size
-    combined_array  = [self[0...shorter_size], other[0...shorter_size]]
-    combined_array  = combined_array.transpose
+    combined_array  = self[0...shorter_size].zip other[0...shorter_size]
     combined_array += self[shorter_size..-1]
     combined_array += other[shorter_size..-1]
     combined_array.flatten
