@@ -25,7 +25,7 @@ end
 
 class Array
   def frequencies
-    Hash[each.map { |element| [element, count(element)] }]
+    Hash[map { |element| [element, count(element)] }]
   end
 
   def average
