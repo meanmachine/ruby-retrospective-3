@@ -50,7 +50,7 @@ module Asm
 
   include Jumps
 
-  def Asm.asm(&block)
+  def self.asm(&block)
     @@registers = {'ax' => 0, 'bx' => 0, 'cx' => 0, 'dx' => 0}
     @@flag = 0
     @@operations_log = []
