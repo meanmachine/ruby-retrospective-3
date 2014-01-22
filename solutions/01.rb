@@ -18,8 +18,7 @@ class Integer
   end
 
   def digits
-    return [abs] if abs < 10
-    (abs / 10).digits + [abs % 10]
+    abs.to_s.split(//).map(&:to_i)
   end
 end
 
