@@ -100,5 +100,3 @@ module Asm
   end
 
 end
-
-include Asm
